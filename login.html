@@ -58,7 +58,27 @@
     }
   </style>
   <script type="module">
-    // Your Firebase imports
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyAEiyFXpo3g3jQH29StryTo8allLgyGLOA",
+      authDomain: "teknik-ab-beta-keys.firebaseapp.com",
+      projectId: "teknik-ab-beta-keys",
+      storageBucket: "teknik-ab-beta-keys.appspot.com",
+      messagingSenderId: "930102034884",
+      appId: "1:930102034884:web:74f7c3f45a31ba9350a491",
+      measurementId: "G-8WBVXG2MXD"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
   </script>
 </head>
 <body>
