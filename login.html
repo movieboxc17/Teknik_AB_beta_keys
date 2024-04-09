@@ -4,58 +4,73 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Teknik AB Games</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    
+    .container {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+    }
+    
+    h1 {
+      margin-bottom: 20px;
+    }
+    
+    label {
+      font-weight: bold;
+    }
+    
+    input[type="email"],
+    input[type="password"] {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    button[type="submit"] {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
   <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
-    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
-    
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyAEiyFXpo3g3jQH29StryTo8allLgyGLOA",
-      authDomain: "teknik-ab-beta-keys.firebaseapp.com",
-      projectId: "teknik-ab-beta-keys",
-      storageBucket: "teknik-ab-beta-keys.appspot.com",
-      messagingSenderId: "930102034884",
-      appId: "1:930102034884:web:74f7c3f45a31ba9350a491",
-      measurementId: "G-8WBVXG2MXD"
-    };
-    
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-    const auth = getAuth();
-    
-    const loginForm = document.getElementById('login-form');
-    
-    loginForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = loginForm['email'].value;
-      const password = loginForm['password'].value;
-    
-      signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          // Logged in successfully
-          console.log('User logged in successfully:', userCredential.user);
-          // Redirect user to the success page
-          window.location.href = 'success.BETAKEY.html';
-        })
-        .catch((error) => {
-          // Handle errors
-          console.error('Login error:', error.message);
-          // Display error message to the user or perform other actions here
-        });
-    });
+    // Your Firebase imports
   </script>
 </head>
 <body>
-  <h1>Login to Teknik AB Games</h1>
-  <form id="login-form">
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required><br><br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required><br><br>
-    <button type="submit">Login</button>
-  </form>
+  <div class="container">
+    <h1>Login to Teknik AB Games</h1>
+    <form id="login-form">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br><br>
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br><br>
+      <button type="submit">Login</button>
+    </form>
+  </div>
 </body>
 </html>
