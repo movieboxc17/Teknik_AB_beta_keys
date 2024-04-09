@@ -1,1 +1,61 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup - Teknik AB Games</title>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+    
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAEiyFXpo3g3jQH29StryTo8allLgyGLOA",
+      authDomain: "teknik-ab-beta-keys.firebaseapp.com",
+      projectId: "teknik-ab-beta-keys",
+      storageBucket: "teknik-ab-beta-keys.appspot.com",
+      messagingSenderId: "930102034884",
+      appId: "1:930102034884:web:74f7c3f45a31ba9350a491",
+      measurementId: "G-8WBVXG2MXD"
+    };
+    
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const auth = getAuth();
+    
+    const signupForm = document.getElementById('signup-form');
+    
+    signupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = signupForm['email'].value;
+      const password = signupForm['password'].value;
+    
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed up successfully
+          console.log('User signed up successfully:', userCredential.user);
+          // Redirect user to the success page with the beta key
+          window.location.href = 'success.html?key=BETAKEY123';
+        })
+        .catch((error) => {
+          // Handle errors
+          console.error('Signup error:', error.message);
+          // Display error message to the user or perform other actions here
+        });
+    });
+  </script>
+</head>
+<body>
+  <h1>Signup to Teknik AB Games</h1>
+  <form id="signup-form">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    <button type="submit">Sign Up</button>
+  </form>
+</body>
+</html>
